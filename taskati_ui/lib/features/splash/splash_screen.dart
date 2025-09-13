@@ -3,7 +3,9 @@ import 'package:flutter_gap/flutter_gap.dart';
 import 'package:lottie/lottie.dart';
 import 'package:taskati_ui/core/constants/app_images.dart';
 import 'package:taskati_ui/core/functions/navigation.dart';
+import 'package:taskati_ui/core/services/local_helper.dart';
 import 'package:taskati_ui/core/utils/text_styles.dart';
+import 'package:taskati_ui/features/home/page/home_screen.dart';
 import 'package:taskati_ui/features/upload/upload_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -17,8 +19,14 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
+    bool isUploaded = LocalHelper.getData(LocalHelper.kIsUploaded) ?? false;
     Future.delayed(Duration(seconds: 3), () {
+      if(isUploaded) {
+      pushWithReplacement(context,const HomeScreen());
+        
+      } else {
       pushWithReplacement(context,const UploadScreen());
+      }
     });
   }
 
