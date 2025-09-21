@@ -25,6 +25,12 @@ class HomeHeader extends StatelessWidget {
             ],
           ),
         ),
+        IconButton(
+          onPressed: () {
+            LocalHelper.changeTheme();
+          },
+          icon: const Icon(Icons.dark_mode, color: AppColors.orangeColor),
+        ),
         CircleAvatar(
           radius: 26,
           backgroundColor: AppColors.primaryColor,

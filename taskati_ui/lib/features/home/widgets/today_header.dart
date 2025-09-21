@@ -29,7 +29,7 @@ class TodayHeader extends StatelessWidget {
           height: 40,
           text: '+ Add Task',
           onPressed: () {
-            pushTo(context, AddTaskScreen());
+            pushTo(context, AddEditTaskScreen());
           },
         ),
       ],

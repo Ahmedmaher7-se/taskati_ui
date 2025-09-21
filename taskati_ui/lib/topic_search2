@@ -1,0 +1,26 @@
+TypeAdapter in flutter
+
+we use it to store data in classes
+ by converting the object into binary and back
+
+ 1. we add hive to the project
+ 2. create a model class
+ 3. generate the Adapter 
+ flutter pub run build_runner build
+ This will create user.g.dart which contains the UserAdapter code.
+
+ 4. register the adapter and open box
+  Hive.registerAdapter(UserAdapter()); // register the adapter
+  await Hive.openBox<User>('users');   // open a box named "users"
+5. save and read data
+  
+
+  In short:
+
+Create a class with @HiveType and @HiveField.
+
+Run build_runner → generates Adapter automatically.
+
+Register the Adapter in main().
+
+Use box.put() to save, and box.get() to read.
